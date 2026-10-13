@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Generate offline app assets
+        run: |
+          python -m pip install Pillow
+          python generate-assets.py
       - name: Put files in place
         run: |
           mkdir -p www assets
